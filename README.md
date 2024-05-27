@@ -1,6 +1,12 @@
 # XXE-File-Generator
 This script read an `export.xml` file and create several `output*.xml ` with a payload to read `/etc/passwd` or any file given with argument `--file "flagtxt"`
 
+### Install some addition libraries
+```
+pip install lxml
+```
+
+### Usage
 Default it will create a payload for `/etc/passwd`
 ```
 python3 XXE-Generator.py
@@ -15,7 +21,7 @@ It will generate for every field a new XML file with the payload.
 They files should be tested manually on the target.
 
 
-Disclaimer
+### Disclaimer
 ----------
 This script is for educational purposes only. It is not intended to be used for malicious or harmful activities. With great power comes great responsibility, and you are solely responsible for any consequences that may arise from your actions.
 By using this script, you acknowledge that you will not use it to harm or exploit others. You understand that any illegal or unethical activities are strictly prohibited and may result in legal consequences.
