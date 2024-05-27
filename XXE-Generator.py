@@ -63,8 +63,7 @@ for i, elem in enumerate(root):
     with open(filename, 'w') as f:
         f.write('<?xml version="1.0"?>\n')
         f.write('<!DOCTYPE data [\n')
-        f.write('   <!ELEMENT data ANY >\n')
-        f.write('   <!ENTITY payload SYSTEM "file://%s">\n' % get_element_type(args.file))
+        f.write('   <!ENTITY payload SYSTEM "file://%s">' % get_element_type(args.file))
         f.write(']>\n')
         # Write the modified XML element to the file
         # Use ET.tostring to convert the ElementTree to a string
@@ -89,6 +88,8 @@ for file in output_files:
     with open(file, 'r') as f:
         # Read the contents of the file
         contents = f.read()
+        # Remove the second XML declaration
+        contents = contents.replace('<?xml version="1.0" ?>', '', 1)
         # Replace all occurrences of '&amp;' with '&'
         contents = contents.replace('&amp;', '&')
         # Open the file in write mode
